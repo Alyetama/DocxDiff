@@ -1,0 +1,33 @@
+# Release artifacts — these ship as GitHub release assets ONLY, never committed.
+*.dmg
+*.app
+
+# Build output
+build/
+dist/
+DerivedData/
+.build/
+.swiftpm/
+target/          # Rust / Tauri
+*.o
+*.dSYM/
+
+# Xcode user state
+*.xcuserstate
+*.xcuserdatad/
+xcuserdata/
+
+# macOS cruft
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+
+# Node / Tauri front-end (safe no-ops if the project isn't JS)
+node_modules/
+
+# Local tooling and intermediate icon build products
+.superpowers/
+.codex/
+Assets/IconBuild/
+docs/superpowers/

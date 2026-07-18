@@ -1,0 +1,48 @@
+{
+  "fill": {
+    "automatic-gradient": "display-p3:0.10588,0.45098,0.93333,1.00000"
+  },
+  "groups": [
+    {
+      "layers": [
+        {
+          "image-name": "plus.svg",
+          "name": "Added Mark",
+          "fill": {
+            "solid": "extended-srgb:0.11765,0.76078,0.35294,1.00000"
+          },
+          "glass": true
+        },
+        {
+          "image-name": "minus.svg",
+          "name": "Removed Mark",
+          "fill": {
+            "solid": "extended-srgb:0.95686,0.27059,0.31765,1.00000"
+          },
+          "glass": true
+        },
+        {
+          "image-name": "documents.svg",
+          "name": "Documents",
+          "fill": {
+            "solid": "extended-srgb:0.96078,0.97647,1.00000,1.00000"
+          },
+          "glass": true
+        }
+      ],
+      "shadow": {
+        "kind": "neutral",
+        "opacity": 0.42
+      },
+      "translucency": {
+        "enabled": true,
+        "value": 0.18
+      },
+      "specular": true
+    }
+  ],
+  "supported-platforms": {
+    "circles": ["watchOS"],
+    "squares": "shared"
+  }
+}
