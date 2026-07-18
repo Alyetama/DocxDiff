@@ -139,33 +139,6 @@
     border-radius: var(--radius);
   }
 
-  /* Staggered cluster for the secondary views. */
-  .gallery {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 0;
-    margin-top: 56px;
-  }
-
-  .gallery figure {
-    margin: 0;
-    width: 46%;
-    border-radius: var(--radius);
-    overflow: hidden;
-    border: 1px solid var(--hairline);
-    box-shadow: 0 18px 44px rgba(0,0,0,.45);
-    transition: transform .22s ease;
-  }
-
-  .gallery img { display: block; width: 100%; height: auto; }
-
-  .gallery figure:first-child { transform: rotate(-2.5deg) translateY(10px); margin-right: -5%; }
-  .gallery figure:last-child  { transform: rotate(2deg) translateY(28px) scale(.9); }
-
-  .gallery figure:first-child:hover { transform: rotate(-2.5deg) translateY(2px); }
-  .gallery figure:last-child:hover  { transform: rotate(2deg) translateY(20px) scale(.9); }
-
   /* ---------- features ---------- */
 
   .features {
@@ -249,14 +222,6 @@
 
   @media (max-width: 700px) {
     header { padding-top: 56px; }
-    .gallery { flex-direction: column; align-items: center; gap: 22px; }
-    .gallery figure,
-    .gallery figure:first-child,
-    .gallery figure:last-child {
-      width: 100%;
-      transform: none;
-      margin-right: 0;
-    }
     #howto { padding: 24px 20px; }
   }
 
@@ -277,15 +242,6 @@
 
   <div class="shot fade">
     <img src="mockup.png" alt="DocxDiff screenshot">
-  </div>
-
-  <div class="gallery">
-    <figure>
-      <img src="mockup-2.png" alt="DocxDiff showing changed embedded figures">
-    </figure>
-    <figure>
-      <img src="mockup-3.png" alt="DocxDiff waiting for two documents to be added">
-    </figure>
   </div>
 
   <section class="features">
