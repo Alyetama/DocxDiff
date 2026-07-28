@@ -15,8 +15,8 @@ Requires macOS 14 or later.
 
 ## Features
 
-- **Word-level text diffs.** Paragraphs and table cells are aligned in document order, with removed words struck through in red and added words in green.
-- **Embedded image comparison.** Figures whose bytes were added, removed, or replaced are reported; a replacement keeps both the old and new preview side by side.
+- **Word-level text diffs.** Text is aligned in document order, with removed words struck through in red and added words in green. Table cell text is compared too, though every change is labelled `Paragraph N` — cells are not identified as cells.
+- **Embedded image comparison.** Figures whose bytes were added, removed, or replaced are reported. A replacement keeps both the old and new preview side by side, but the two are only paired as a replacement when the surrounding text is similar enough; otherwise the same edit shows up as a separate removal and addition.
 - **Drag and drop, or pick a file.** Drop a DOCX onto either slot or click to browse. Comparison starts on its own once both slots hold a valid document.
 - **Filter what you look at.** Switch between All, Text, and Images to narrow the result list.
 - **Swap and clear.** Reverse which file counts as the baseline, or reset both slots, without relaunching.
@@ -26,8 +26,17 @@ Requires macOS 14 or later.
 
 DocxDiff does not compare text formatting; image size, crop, position, or style when the
 media bytes are unchanged; headers; footers; comments; footnotes; endnotes; or
-tracked-change metadata. It does not export reports, and the bundle is neither App Store
-sandboxed nor notarized.
+tracked-change metadata. Only `word/document.xml` is read. It does not export reports,
+and the bundle is neither App Store sandboxed nor notarized.
+
+Two behaviours worth knowing before you rely on them:
+
+- **Changes are always labelled `Paragraph N`.** Table cell text is compared, because
+  cells contain paragraphs, but nothing in the interface marks a change as belonging to a
+  table.
+- **Replaced figures are not always detected as replacements.** Pairing an old figure with
+  its new version depends on the text around it staying similar. When it changes too, you
+  get a separate "Figure removed" and "Figure added" instead.
 
 ## First launch (opening an unsigned app)
 

@@ -114,6 +114,9 @@
   .shot {
     position: relative;
     margin: 64px 0 0;
+    /* The glow below is wider than this box; clip it so the page never
+       scrolls horizontally at narrow widths. */
+    overflow-x: clip;
   }
 
   /* Signature radial accent glow behind the primary mockup. */
@@ -158,6 +161,21 @@
 
   .card h3 { margin: 0 0 8px; font-size: 1rem; }
   .card p  { margin: 0; color: var(--muted); font-size: .95rem; line-height: 1.5; }
+
+  /* ---------- scope ---------- */
+
+  .scope {
+    margin-top: 72px;
+    color: var(--muted);
+  }
+
+  .scope h2 {
+    margin-bottom: 12px;
+    color: var(--text);
+    font-size: 1.4rem;
+  }
+
+  .scope p { margin: 0 0 14px; font-size: .98rem; }
 
   /* ---------- how to open ---------- */
 
@@ -247,11 +265,11 @@
   <section class="features">
     <div class="card">
       <h3>Word-level text diffs</h3>
-      <p>Paragraphs and table cells align in document order. Removed words are struck through in red, added words show in green.</p>
+      <p>Text aligns in document order. Removed words are struck through in red, added words show in green. Table cell text is compared too, though every change is labelled <code>Paragraph N</code>.</p>
     </div>
     <div class="card">
       <h3>Embedded images too</h3>
-      <p>Figures added, removed, or replaced are reported. A replacement keeps the old and new preview side by side.</p>
+      <p>Figures added, removed, or replaced are reported. A replacement keeps the old and new preview side by side when the surrounding text is similar enough to pair them.</p>
     </div>
     <div class="card">
       <h3>Drop it and go</h3>
@@ -261,6 +279,18 @@
       <h3>Nothing leaves your Mac</h3>
       <p>No uploads, no accounts, no database. Temporary extraction directories are deleted after every comparison.</p>
     </div>
+  </section>
+
+  <section class="scope">
+    <h2>What it doesn't do</h2>
+    <p>DocxDiff compares the text and embedded image bytes of <code>word/document.xml</code>. It does
+    not compare formatting; image size, crop, or position when the media bytes are unchanged;
+    headers; footers; comments; footnotes; endnotes; or tracked-change metadata. It does not export
+    reports, and it is not notarized.</p>
+    <p>Two behaviours worth knowing: every change is labelled <code>Paragraph N</code>, so table cell
+    text is compared but never marked as belonging to a table; and a replaced figure is only paired
+    as a replacement when the text around it stays similar, otherwise it appears as a separate
+    removal and addition.</p>
   </section>
 
   <section id="howto">
